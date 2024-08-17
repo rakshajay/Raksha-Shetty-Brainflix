@@ -1,0 +1,73 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 1rem;
+
+  &-section {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+    border-bottom: 0.09rem solid $mercury;
+
+    &__circle {
+      display: flex;
+      padding-top: 1rem;
+
+      &-color {
+        width: 2.6rem;
+        height: 2.6rem;
+        background-color: $mercury;
+        border-radius: 50%;
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+
+      &-tags {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        h3 {
+          @include subheader-mobile;
+          color: $brainflix-black;
+          margin: .8rem 0 .7rem;
+          @include tablet{
+            margin-top: 1.4rem;
+          }
+        }
+        h4 {
+          @include subheader-mobile;
+          font-weight: 400;
+          color: $silver;
+          margin: .8rem 0 .7rem;
+        }
+      }
+
+      &-comments {
+        p {
+          @include body-copy-mobile;
+          color: $brainflix-black;
+          margin-top: 0;
+
+          @include tablet{
+            margin-bottom: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet{
+    margin: 2rem;
+  }
+}

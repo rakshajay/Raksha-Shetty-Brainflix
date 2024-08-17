@@ -1,14 +1,14 @@
 import "./NextVideos.scss";
 
-function NextVideos({handleVideoClick, dataArray}) {
-   
+function NextVideos({handleVideoClick, dataArray, currentVideoID}) {
 
     return (
         <section className="gallery">
             <h1 className="gallery-heading">NEXT VIDEOS</h1>
-            <div className="gallery-list">
-            {dataArray.map((video) => (
-                <div onClick={() => handleVideoClick(video.id)}  
+            <ul className="gallery-list">
+            {dataArray.filter((video) => video.id !== currentVideoID)
+            .map((video) => (
+                <li onClick={() => handleVideoClick(video.id)}  
                 key={video.id} className="gallery-list__item">
                 <div className="gallery-list__item-image">
                     <img src={video.image} alt={video.title} />
@@ -17,9 +17,9 @@ function NextVideos({handleVideoClick, dataArray}) {
                     <h2 >{video.title}</h2>
                     <p >{video.channel}</p>
                     </div>
-                </div>
+                </li>
             ))}
-        </div>
+        </ul>
         </section>
     );
 }
