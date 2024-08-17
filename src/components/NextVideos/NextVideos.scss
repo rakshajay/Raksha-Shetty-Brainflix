@@ -1,0 +1,53 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.gallery{
+ margin: 1rem;
+ 
+    h1{
+        @include subheader-mobile;
+        font-weight: 600;
+        color: $silver;
+        margin: 1rem 0 1rem;
+    }
+
+    &-list{
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+        
+        &__item{
+            display: flex;
+            flex-direction: row;  
+            gap:1rem;
+            
+            &-image{
+                box-sizing: border-box;
+                height: 100%;
+                img{
+                    background-color: $mercury;
+                    width: 36vw;
+                    border-radius: 4px;
+                }
+            }
+
+         &-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h2{
+                @include subheader-mobile;
+                font-weight: 700;
+                color:$brainflix-black;
+                margin: 0;
+            }
+            p{
+                @include body-copy-mobile;
+                color:$brainflix-black;
+                margin: 0;
+            }
+         }
+        }
+    }
+}

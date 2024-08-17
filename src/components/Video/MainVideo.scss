@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.Video-container {
+    width: 100%;
+
+    background-color: $brainflix-darkblack; 
+    @include flex-center;
+
+    &__video {
+        box-sizing: border-box;
+        width: 44rem;
+        aspect-ratio: 16 / 9; 
+      video{
+        overflow: hidden;
+        box-sizing: border-box;
+        object-fit:cover;
+      }
+    }
+  }
