@@ -3,19 +3,24 @@
 @use "../../styles/partials/typography" as *;
 
 .Video-container {
+  margin: 0;
+  background-color: $brainflix-darkblack;
+  @include flex-center;
 
-    margin: 0;
-    background-color: $brainflix-darkblack; 
+  &__video {
     @include flex-center;
+    box-sizing: border-box;
+    width: 91%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    video {
+      width: 100%;
+      overflow: hidden;
+      object-fit: cover;
+    }
 
-    &__video {
-        box-sizing: border-box;
-        width: 42rem;
-        aspect-ratio: 16 / 9; 
-      video{
-        overflow: hidden;
-        box-sizing: border-box;
-        object-fit:cover;
-      }
+    @include desktop {
+      width: 68%;
     }
   }
+}

@@ -65,6 +65,7 @@ section {
                     border: 0.062rem solid $mercury;
                     border-radius: 0.25rem;
                     color: $brainflix-black;
+                    resize: none;
 
                     &::placeholder {
                         @include body-copy-mobile;
@@ -75,10 +76,6 @@ section {
                     @include tablet {
                         padding: 1rem;
                         height: 8vw;
-                    }
-
-                    #comments {
-                        resize: none;
                     }
 
                     @include tablet {

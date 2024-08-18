@@ -63,7 +63,7 @@ body{
   }
   
   @mixin labels-buttons-mobile {
-    @include font-style(.625rem, 1.25rem, $font-avenir-bold);
+    @include font-style(.7rem, 1.25rem, $font-avenir-bold);
   }
 
  //flex box

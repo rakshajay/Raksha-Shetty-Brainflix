@@ -16,7 +16,6 @@ function CommentSection({commentsNumber}) {
               <textarea
                 placeholder="Add a new comment"
                 name="comment"
-                id="comment"
               ></textarea>
             </div>
             <div className="comment-content__form-button">
