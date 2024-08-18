@@ -1,6 +1,5 @@
 import logo from "../../assets/Logo/BrainFlix-logo.svg";
 import murgan from "../../assets/Images/Mohan-muruge.jpg";
-import buttonIcon from "../../assets/Icons/upload.svg";
 import "./header.scss";
 
 function Header() {

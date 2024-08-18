@@ -3,14 +3,14 @@
 @use "../../styles/partials/typography" as *;
 
 .Video-container {
-    width: 100%;
 
+    margin: 0;
     background-color: $brainflix-darkblack; 
     @include flex-center;
 
     &__video {
         box-sizing: border-box;
-        width: 44rem;
+        width: 42rem;
         aspect-ratio: 16 / 9; 
       video{
         overflow: hidden;

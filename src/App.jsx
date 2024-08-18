@@ -3,6 +3,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import MainVideo from "./components/Video/MainVideo";
 import DescriptionSection from "./components/DescriptionSection/DescriptionSection";
+import CommentSection from "./components/CommentSection/CommentSection";
 import CommentList from "./components/CommentList/CommentList";
 import NextVideos from "./components/NextVideos/NextVideos";
 import dataArray from "./data/video-details.json";
@@ -34,6 +35,7 @@ function App() {
       likes={currentVideo.likes}
       timestamp={new Date(currentVideo.timestamp).toLocaleDateString()}
       />
+      <CommentSection commentsNumber={currentVideo.comments.length}/>
       <CommentList 
       dataArrayComments={currentVideo.comments} />
       <NextVideos 
