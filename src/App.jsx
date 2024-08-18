@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import MainVideo from "./components/Video/MainVideo";
+import DescriptionSection from "./components/DescriptionSection/DescriptionSection";
 import CommentList from "./components/CommentList/CommentList";
 import NextVideos from "./components/NextVideos/NextVideos";
 import dataArray from "./data/video-details.json";
@@ -25,6 +26,14 @@ function App() {
     <>
       <Header />
       <MainVideo poster={currentVideo.image} video={currentVideo.video} />
+      <DescriptionSection
+      description={currentVideo.description}
+      title={currentVideo.title}
+      channel={currentVideo.channel}
+      views={currentVideo.views}
+      likes={currentVideo.likes}
+      timestamp={new Date(currentVideo.timestamp).toLocaleDateString()}
+      />
       <CommentList 
       dataArrayComments={currentVideo.comments} />
       <NextVideos 

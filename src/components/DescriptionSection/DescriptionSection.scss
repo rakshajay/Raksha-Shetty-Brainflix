@@ -1,0 +1,83 @@
+@use"../../styles/partials/mixins" as *;
+@use"../../styles/partials/variables" as *;
+@use"../../styles/partials/typography" as *;
+
+.description {
+  margin: 1rem;
+
+  p {
+    @include body-copy-mobile;
+  }
+
+  &-title {
+    border-bottom: 0.09rem solid $mercury;
+
+    h1 {
+      @include page-header-mobile;
+
+      @include tablet {
+        @include page-header-desktop;
+        margin: 0;
+      }
+    }
+
+    @include tablet {
+      border: none;
+    }
+  }
+
+  &-details {
+    margin: 0.8rem 0 1.2rem;
+    padding-bottom: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    border-bottom: 0.09rem solid $mercury;
+
+    h3 {
+      @include subheader-mobile;
+      margin: 0.6rem 0;
+    }
+
+    h4 {
+      @include section-header-mobile;
+      font-weight: 400;
+      color: $silver;
+      margin: 0.5rem 0;
+    }
+
+    &__name,
+    &__visits {
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        flex-direction: row;
+        gap: 2rem;
+      }
+    }
+
+    &__visits {
+      &-views,
+      &-likes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 0.6rem;
+      }
+    }
+
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 1.6rem;
+      padding: 0;
+    }
+  }
+
+  @include tablet {
+    margin: 2rem;
+  }
+}
