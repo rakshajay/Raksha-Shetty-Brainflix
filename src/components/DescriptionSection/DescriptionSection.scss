@@ -7,6 +7,9 @@
 
   p {
     @include body-copy-mobile;
+    @include tablet {
+      @include body-copy-desktop;
+    }
   }
 
   &-title {

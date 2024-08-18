@@ -10,7 +10,7 @@
   &__video {
     @include flex-center;
     box-sizing: border-box;
-    width: 91%;
+    width: 100%;
     aspect-ratio: 16 / 9;
     height: auto;
     video {
@@ -19,8 +19,12 @@
       object-fit: cover;
     }
 
+    @include tablet {
+      width: 91%;
+    }
+
     @include desktop {
-      width: 68%;
+      width: 67.5%;
     }
   }
 }

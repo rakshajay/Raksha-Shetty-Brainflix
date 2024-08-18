@@ -3,115 +3,144 @@
 @use "../../styles/partials/typography" as *;
 
 section {
-    margin: 1rem;
+  margin: 1rem 1rem 0 1rem;
 
-    h4 {
-        font-size: .87rem;
+  h4 {
+    font-size: 0.87rem;
+    font-weight: 600;
+    @include tablet {
+      font-weight: 700;
+    }
+  }
+
+  .comment {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.09rem solid $mercury;
+
+    &-murgan {
+      display: flex;
+
+      img {
+        margin-top: 1.6rem;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        object-fit: cover;
+        object-position: 15%85%;
+      }
+    }
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.3rem;
+
+      h1 {
+        @include subheader-mobile;
         font-weight: 600;
-    }
+        color: $silver;
+        margin: 0;
 
-    .comment {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        gap: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 0.09rem solid $mercury;
-
-        &-murgan {
-            display: flex;
-
-            img {
-                margin-top: 1.6rem;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                object-fit: cover;
-                object-position: 15%85%;
-            }
-
+        @include tablet {
+          @include labels-buttons-desktop;
         }
+      }
 
-        &-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: .3rem;
+      &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
 
-            h1 {
-                @include subheader-mobile;
-                font-weight: 600;
-                color: $silver;
-                margin: 0;
+        &-text {
+          textarea {
+            padding: 0.75rem;
+            height: 22vw;
+            width: 62vw;
+            background-color: $alabaster;
+            border: 0.062rem solid $mercury;
+            border-radius: 0.25rem;
+            color: $brainflix-black;
+            resize: none;
+            border-style: solid;
+            border-width: 0.1rem;
 
-                @include tablet {
-                    @include labels-buttons-desktop;
-                    font-weight: 600;
-                  }
+            &::placeholder {
+              font-size: 0.9rem;
+              color: $brainflix-black;
             }
 
-            &__form {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: .6rem;
-
-                textarea {
-                    padding: 0.75rem;
-                    height: 22vw;
-                    width: 62vw;
-                    background-color: $alabaster;
-                    border: 0.062rem solid $mercury;
-                    border-radius: 0.25rem;
-                    color: $brainflix-black;
-                    resize: none;
-
-                    &::placeholder {
-                        @include body-copy-mobile;
-                        font-size: 0.9rem;
-                        color: $brainflix-black;
-                    }
-
-                    @include tablet {
-                        padding: 1rem;
-                        height: 8vw;
-                    }
-
-                    @include tablet {
-                        height: 2.2vw;
-                        padding: .6rem;
-                      }
-                }
-
-                &-button {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 1.125rem;
-
-                    button {
-                        background: url("../../assets/Icons/add_comment.svg") no-repeat 0.5rem 50% $brainflix-blue;
-                        background-size: 1.2rem;
-                        height: 2.5rem;
-                        width: 100%;
-                        border-radius: 0.25rem;
-                        border: none;
-                        color: $white;
-                        text-align: center;
-
-                        h3 {
-                            @include subheader-mobile;
-                            font-weight: 400;
-                            margin: 0;
-                        }
-                    }
-                }
-                @include tablet {
-                    flex-direction: row;
-                  }
+            @include tablet {
+              width: 54vw;
+              padding: 0.6rem 0.6rem 0.6rem 1rem;
+              height: 1.2rem;
             }
 
-               }
+            @include desktop {
+              width: 28vw;
+            }
+          }
+        }
+        &-button {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          gap: 1.125rem;
+
+          button {
+            background: url("../../assets/Icons/add_comment.svg") no-repeat
+              0.5rem 50% $brainflix-blue;
+            background-size: 1.2rem;
+            height: 2.5rem;
+            width: 100%;
+            border-radius: 0.25rem;
+            border: none;
+            color: $white;
+            text-align: center;
+
+            h3 {
+              @include subheader-mobile;
+              font-weight: 400;
+              margin: 0;
+            }
+
+            @include tablet {
+              width: 20vw;
+            }
+
+            @include desktop {
+              width: 12vw;
+            }
+          }
+        }
+        @include tablet {
+          flex-direction: row;
+          gap: 1.5rem;
+        }
+      }
     }
+
+    @include tablet {
+      justify-content: space-around;
+      gap: 22px;
+    }
+
+    @include desktop {
+      padding-right: 1.5rem;
+      gap: 2rem;
+      border-bottom: none;
+    }
+  }
+
+  @include tablet {
+    margin: 2rem 2rem 0 2rem;
+  }
+  @include desktop {
+    margin-right: 0rem;
+  }
 }

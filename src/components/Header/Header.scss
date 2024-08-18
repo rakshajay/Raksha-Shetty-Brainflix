@@ -19,6 +19,7 @@
       width: 100%;
       @include flex-space-between;
       gap: 1rem;
+      
 
       &-input {
         background: url("../../assets/Icons/search.svg") no-repeat 0.76rem 50%
@@ -31,6 +32,8 @@
         border: 0.0625rem solid $mercury;
         padding: 0.25rem 0.25rem 0.25rem 2.2rem;
         box-sizing: border-box;
+        border-style: solid;
+          border-width: .1rem;
 
         &:focus {
           border: 0.125rem solid $brainflix-blue;
