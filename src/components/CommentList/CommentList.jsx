@@ -1,4 +1,5 @@
 import "./CommentList.scss";
+import TimeAgo from "timeago-react";
 
 function CommentList({dataArrayComments}) {
   return (
@@ -11,7 +12,7 @@ function CommentList({dataArrayComments}) {
           <div className="comments-section-info">
             <div className="comments-section__info-tags">
               <h3>{comment.name}</h3>
-              <h4>{new Date(comment.timestamp).toLocaleDateString()}</h4>
+              <h4><TimeAgo datetime={comment.timestamp} /></h4>
             </div>
             <div className="comments-section__info-comments">
               <p>{comment.comment}</p>

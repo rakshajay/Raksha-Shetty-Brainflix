@@ -19,6 +19,7 @@ function App() {
     const foundVideo = dataArray.find((video) => video.id === id);
     setCurrentVideo(foundVideo);
   };
+  
 
   return (
     <>
