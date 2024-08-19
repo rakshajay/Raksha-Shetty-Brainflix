@@ -82,7 +82,7 @@ section {
               border: 0.125rem solid $brainflix-blue;
             }
 
-              @include tablet {
+            @include tablet {
               width: 54vw;
               padding: 0.6rem 0.6rem 0.6rem 1rem;
               height: 1.2rem;
@@ -92,14 +92,13 @@ section {
               width: 28vw;
             }
           }
-          
+
           &.error {
             textarea {
-             border: none;
-             border: 0.125rem solid red;
+              border: none;
+              border: 0.125rem solid red;
             }
           }
-          
         }
         &-button {
           width: 100%;
@@ -159,4 +158,3 @@ section {
     margin-right: 0rem;
   }
 }
-
