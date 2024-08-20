@@ -6,6 +6,7 @@ import DescriptionSection from "./components/DescriptionSection/DescriptionSecti
 import CommentSection from "./components/CommentSection/CommentSection";
 import CommentList from "./components/CommentList/CommentList";
 import NextVideos from "./components/NextVideos/NextVideos";
+import HandleUpload from "./pages/HandleUpload/HandleUpload";
 import dataArray from "./data/video-details.json";
 
 function App() {

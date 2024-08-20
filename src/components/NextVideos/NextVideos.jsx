@@ -1,6 +1,31 @@
 import "./NextVideos.scss";
+import axios from "axios";
+import { useState,useEffect } from "react";
 
 function NextVideos({handleVideoClick, dataArray, currentVideoID}) {
+
+    const [videos, setVideos]= useState([]);
+
+    const apiKey ="48390e4e-7f0d-4873-bfad-a07caf2a5577";
+    const url= "https://unit-3-project-api-0a5620414506.herokuapp.com";
+
+
+    const getVideosList = async() =>{
+        try {
+            const response = await axios.get(`${url}/videos?api_key=${apiKey}` );
+            console.log(response.data)
+            setVideos(response.data)
+        }
+        catch (error){
+          console.error("Error fetching movies", error)
+        }
+    };
+
+    useEffect(()=>{
+        getVideosList();
+   },[]);
+
+   
 
     return (
         <section className="gallery">

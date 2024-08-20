@@ -98,3 +98,33 @@ body{
 @mixin desktop-margin {
     margin: 0 $default-desktop-margin;
 }
+
+
+//comment section error state
+
+@mixin error-state{
+    textarea {
+      border: none;
+      outline: none;
+      padding: 0.75rem;
+      height: 22vw;
+      width: 62vw;
+      background-color: $alabaster;
+      border: 0.062rem solid red;
+      border-radius: 0.25rem;
+      color: $brainflix-black;
+      resize: none;
+      border-style: solid;
+      border-width: 0.1rem;
+
+      @include tablet {
+        width: 54vw;
+        padding: 0.6rem 0.6rem 0.6rem 1rem;
+        height: 1.2rem;
+      }
+
+      @include desktop {
+        width: 28vw;
+      }
+    }
+}

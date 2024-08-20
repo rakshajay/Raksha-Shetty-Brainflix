@@ -93,11 +93,8 @@ section {
             }
           }
 
-          &.error {
-            textarea {
-              border: none;
-              border: 0.125rem solid red;
-            }
+          &__error {
+              @include error-state;
           }
         }
         &-button {
@@ -151,10 +148,13 @@ section {
     }
   }
 
+
   @include tablet {
     margin: 2rem 2rem 0 2rem;
   }
   @include desktop {
     margin-right: 0rem;
   }
+  
 }
+
