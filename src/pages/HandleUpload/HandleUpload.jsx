@@ -17,10 +17,7 @@ function HandleUpload() {
           <form>
             <div className="upload-sec__text-title">
               <h2>TITTLE YOUR VIDEO</h2>
-              <input
-                type="text"
-                placeholder="Add a title to your video"
-              />
+              <textarea placeholder="Add a title to your video"></textarea>
             </div>
             <div className="upload-sec__text-comment">
               <h2>ADD A VIDEO DESCRIPTION</h2>
