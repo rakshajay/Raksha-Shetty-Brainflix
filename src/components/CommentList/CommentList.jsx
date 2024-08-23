@@ -4,7 +4,7 @@ import TimeAgo from "timeago-react";
 function CommentList({dataArrayComments}) {
   return (
     <ul className="comments">
-      {dataArrayComments.map((comment) => (
+      {dataArrayComments?.map((comment) => (
         <li key={comment.id} className="comments-section">
           <div className="comments-section__circle">
             <div className="comments-section__circle-color"></div>

@@ -8,17 +8,18 @@ import HandleUpload from "./pages/HandleUpload/HandleUpload";
 function App() {
 
   return (
-    <>
-      <Header />
-      {/* <HomePage /> */}
-   
-     <BrowserRouter>
+
+    <BrowserRouter>
+    <Header />
         <Routes>
-        {/* <Route path="/" element={<HomePage/>} /> */}
-          <Route path="/upload" element={<HandleUpload />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/videos" element={<Navigate to="/" />} />
+        <Route path="/videos/:id" element={<HomePage />} />
+        <Route path="/upload" element={<HandleUpload />} />
+        <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter> 
-    </>
+
   );
 }
 
