@@ -1,15 +1,11 @@
 import "./DescriptionSection.scss";
 import likesIcon from "../../assets/Icons/likes.svg";
 import viewsIcon from "../../assets/Icons/views.svg";
+import TimeAgo from "timeago-react";
 
-function DescriptionSection({
-  description,
-  title,
-  views,
-  likes,
-  timestamp,
-  channel,
-}) {
+function DescriptionSection({CurrentVideo}) {
+  const { description, title, channel, views, likes, timestamp } = CurrentVideo;
+  const formattedTimestamp = new Date(timestamp).toLocaleDateString();
   return (
     <div className="description">
       <div className="description-title">
@@ -21,7 +17,7 @@ function DescriptionSection({
             <h3>By {channel}</h3>
           </div>
           <div>
-            <h4>{timestamp}</h4>
+            <h4><TimeAgo datetime={formattedTimestamp} /></h4>
           </div>
         </div>
         <div className="description-details__visits">

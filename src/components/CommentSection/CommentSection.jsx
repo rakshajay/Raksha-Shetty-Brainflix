@@ -1,7 +1,6 @@
 import "./CommentSection.scss";
 import murgan from "../../assets/Images/Mohan-muruge.jpg";
 import { useState } from "react";
-import HandleUpload from "../../pages/HandleUpload/HandleUpload";
 
 function CommentSection({ commentsNumber }) {
   const [inputComment, setInputComment] = useState("");

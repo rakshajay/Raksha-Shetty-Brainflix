@@ -2,11 +2,16 @@ import "./HandleUpload.scss";
 import thumbnailImage from "../../assets/Images/Upload-video-preview.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function HandleUpload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const navigate = useNavigate();
+
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -21,6 +26,7 @@ function HandleUpload() {
 
     if (title.trim() && description.trim()) {
       alert("Video Uploaded Successfully");
+      navigate("/");
     } else {
       setIsSubmitted(true);
       setTimeout(() => {
@@ -51,7 +57,7 @@ function HandleUpload() {
             <div className="upload-sec__text-comment">
               <h2>ADD A VIDEO DESCRIPTION</h2>
               <textarea
-              id={`upload-comment${isSubmitted && !title.trim() ? "__error" : ""}`}
+              id={`upload-description${isSubmitted && !title.trim() ? "__error" : ""}`}
                 onChange={handleDescriptionChange}
                 value={description}
                 placeholder="Add a description to your video"

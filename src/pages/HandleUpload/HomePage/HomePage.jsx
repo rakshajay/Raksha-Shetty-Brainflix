@@ -64,20 +64,15 @@ function HomePage() {
     }, [params.id]);
     //   console.log(getSelectedVideo("84e96018-4022-434e-80bf-000ce4cd12b8"))
 
-
+  
 
   return (
     <>
-      <MainVideo poster={CurrentVideo.image} video={`${CurrentVideo.video}?api_key=${apiKey}`} />
+      <MainVideo poster={CurrentVideo.image} video={videos} />
       <div className="info">
         <div className="info-text">
           <DescriptionSection
-            description={CurrentVideo.description}
-            title={CurrentVideo.title}
-            channel={CurrentVideo.channel}
-            views={CurrentVideo.views}
-            likes={CurrentVideo.likes}
-            timestamp={new Date(CurrentVideo.timestamp).toLocaleDateString()}
+            CurrentVideo={CurrentVideo}
           />
           <CommentSection commentsNumber={CurrentVideo.comments?.length} />
           <CommentList dataArrayComments={CurrentVideo.comments} />

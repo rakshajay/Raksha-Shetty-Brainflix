@@ -144,14 +144,9 @@
   }
 }
 
-#upload-tittle__error{
+#upload-tittle__error, #upload-description__error{
   border: none;
   outline: 0;
-  border: 0.0625rem solid rgb(195, 0, 0);
+  border: .0625rem solid  #D22D2D;
 }
 
-#upload-comment__error{
-  border: none;
-outline: 0;
-  border: 0.0625rem solid rgb(195, 0, 0);
-}
