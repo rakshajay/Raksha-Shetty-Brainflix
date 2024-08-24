@@ -1,6 +1,7 @@
 import "./CommentSection.scss";
 import murgan from "../../assets/Images/Mohan-muruge.jpg";
 import { useState } from "react";
+import HandleUpload from "../../pages/HandleUpload/HandleUpload";
 
 function CommentSection({ commentsNumber }) {
   const [inputComment, setInputComment] = useState("");
@@ -12,13 +13,15 @@ function CommentSection({ commentsNumber }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsSubmitted(true);
-    
-    // if (inputComment.trim()) {
-    //   alert("Comment Submitted");
-    // } else {
-    //   alert("Please fill the comment section before submitting");
-    // }
+   
+    if (inputComment.trim()) {
+      alert("Comment Submitted");
+    } else {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        alert("Please fill the comment section before submitting");
+      }, 0);
+    }
   };
 
   return (

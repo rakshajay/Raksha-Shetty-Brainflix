@@ -68,7 +68,7 @@
           background-size: 1.1rem;
         }
       }
-
+     
       &-title textarea {
         height: 2.3rem;
         width: 100%;
@@ -142,4 +142,16 @@
       margin: 0 8rem 1.5rem 8rem;
     }
   }
+}
+
+#upload-tittle__error{
+  border: none;
+  outline: 0;
+  border: 0.0625rem solid rgb(195, 0, 0);
+}
+
+#upload-comment__error{
+  border: none;
+outline: 0;
+  border: 0.0625rem solid rgb(195, 0, 0);
 }

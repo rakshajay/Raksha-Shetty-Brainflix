@@ -1,10 +1,34 @@
 import "./HandleUpload.scss";
-import Header from "../../components/Header/Header";
 import thumbnailImage from "../../assets/Images/Upload-video-preview.jpg";
-import murgan from "../../assets/Images/Mohan-muruge.jpg";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function HandleUpload() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (title.trim() && description.trim()) {
+      alert("Video Uploaded Successfully");
+    } else {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        alert("Please fill in all fields before submitting");
+      }, 0);
+    }
+  };
+
   return (
     <div className="upload">
       <h1>Upload Video</h1>
@@ -14,24 +38,34 @@ function HandleUpload() {
           <img src={thumbnailImage} alt="image of video preview" />
         </div>
         <div className="upload-sec__text">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="upload-sec__text-title">
-              <h2>TITTLE YOUR VIDEO</h2>
-              <textarea placeholder="Add a title to your video"></textarea>
+              <h2>TITLE YOUR VIDEO</h2>
+              <textarea
+                id={`upload-tittle${isSubmitted && !title.trim() ? "__error" : ""}`}
+                onChange={handleTitleChange}
+                value={title}
+                placeholder="Add a title to your video"
+              ></textarea>
             </div>
             <div className="upload-sec__text-comment">
               <h2>ADD A VIDEO DESCRIPTION</h2>
-              <textarea placeholder="Add a description to your video"></textarea>
+              <textarea
+              id={`upload-comment${isSubmitted && !title.trim() ? "__error" : ""}`}
+                onChange={handleDescriptionChange}
+                value={description}
+                placeholder="Add a description to your video"
+              ></textarea>
+            </div>
+            <div className="upload-sec__buttons">
+              <button type="submit">PUBLISH</button>
+              <Link to="/">
+                <h2>CANCEL</h2>
+              </Link>
             </div>
           </form>
         </div>
       </div>
-      <div className="upload-sec__buttons">
-      <Link to="/">  
-      <button>PUBLISH</button>
-        <h2>CANCEL</h2>
-        </Link>
-         </div>
     </div>
   );
 }

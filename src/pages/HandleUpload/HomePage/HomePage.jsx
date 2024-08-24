@@ -11,6 +11,8 @@ import NextVideos from "../../../components/NextVideos/NextVideos";
 
 
 function HomePage() {
+   
+   // import API data for video streaming and video list
     const [videos, setVideos] = useState([]);
     const [CurrentVideo, setCurrentVideo] = useState({});
 
