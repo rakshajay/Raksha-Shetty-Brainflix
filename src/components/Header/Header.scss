@@ -42,16 +42,10 @@
           border: 0.125rem solid $brainflix-blue;
         }
 
-        &.error {
-          border: 0.0625rem solid #d22d2d;
-        }
-
         &::placeholder {
-          @include labels-buttons-mobile;
-          font-weight: 600;
-          color: $brainflix-black;
-          display: flex;
-          align-items: center;
+          font-family: 'Avenir Next';
+            font-weight: 600;
+            color:$brainflix-darkblack;
         }
 
         @include tablet {

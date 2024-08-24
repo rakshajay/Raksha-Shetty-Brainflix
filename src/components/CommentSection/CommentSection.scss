@@ -60,7 +60,6 @@ section {
         &-text {
           textarea {
             border: none;
-            outline: none;
             padding: 0.75rem;
             height: 22vw;
             width: 62vw;
@@ -73,14 +72,9 @@ section {
             border-width: 0.1rem;
 
             &::placeholder {
-              @include subheader-mobile;
-              font-weight: 400;
-              font-size: 0.9rem;
-              color: $brainflix-black;
-              @include tablet {
-                @include subheader-desktop;
-                font-weight: 400;
-              }
+            font-family: 'Avenir Next';
+            font-weight: 600;
+            color:$brainflix-black;
             }
 
             &:focus {

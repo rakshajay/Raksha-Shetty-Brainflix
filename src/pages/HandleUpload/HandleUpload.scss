@@ -54,14 +54,9 @@
         color: $brainflix-black;
         box-sizing: border-box;
         &::placeholder {
-          @include subheader-mobile;
-          font-weight: 400;
-          font-size: 0.9rem;
-          color: $brainflix-black;
-          @include tablet {
-            @include subheader-desktop;
-            font-weight: 400;
-          }
+          font-family: 'Avenir Next';
+            font-weight: 600;
+            color:$brainflix-black;
         }
         &:focus {
           border: none;
