@@ -73,12 +73,19 @@ section {
             border-width: 0.1rem;
 
             &::placeholder {
+              @include subheader-mobile;
+              font-weight: 400;
               font-size: 0.9rem;
               color: $brainflix-black;
+              @include tablet {
+                @include subheader-desktop;
+                font-weight: 400;
+              }
             }
 
             &:focus {
               border: none;
+              outline: 0;
               border: 0.125rem solid $brainflix-blue;
             }
 

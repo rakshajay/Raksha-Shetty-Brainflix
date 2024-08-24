@@ -21,55 +21,52 @@ function HomePage() {
   
     const getVideosList = async () => {
       try {
-        const videos = await axios.get(`${url}/videos?api_key=${apiKey}`);
-       console.log(videos.data[0].id);
-        setVideos(videos.data);
+        const response = await axios.get(`${url}/videos?api_key=${apiKey}`);
+        const videos = response.data;
+    
+        if (videos && videos.length > 0) {
+          setVideos(videos);
+    
+          if (params.id) {
+            getSelectedVideo(params.id);
+          } else {
+            getSelectedVideo(videos[0].id);
+          }
+        } else {
+          console.error("No videos found.");
+        }
       } catch (error) {
         console.error("Error fetching movies", error);
       }
-
-      if (params.id) {
-        getSelectedVideo(params.id);
-      } else {
-        getSelectedVideo("84e96018-4022-434e-80bf-000ce4cd12b8");
+    };
+    
+    const getSelectedVideo = async (id) => {
+      try {
+        const response = await axios.get(`${url}/videos/${id}?api_key=${apiKey}`);
+        setCurrentVideo(response.data);
+      } catch (error) {
+        console.error("Error fetching movie", error);
       }
     };
-
-    const getSelectedVideo = async (id) => {
-        try {
-          const video = await axios.get(`${url}/videos/${id}?api_key=${apiKey}`);
-          console.log(video.data);
-          setCurrentVideo(video.data);
-        } catch (error) {
-          console.error("Error fetching movies", error);
-        }
-
-      };
     
-  
     useEffect(() => {
       getVideosList();
     }, []);
-
+    
     useEffect(() => {
-        if (params.id) {
-            getSelectedVideo(params.id);
-        } else {
-            getVideosList();
-        }
-      }, [params.id]);
-
+      if (params.id) {
+        getSelectedVideo(params.id);
+      } else {
+        getVideosList();
+      }
+    }, [params.id]);
     //   console.log(getSelectedVideo("84e96018-4022-434e-80bf-000ce4cd12b8"))
 
 
-  const handleVideoClick = (id) => {
-    const foundVideo = videos.find((video) => video.id === id);
-    setCurrentVideo(foundVideo);
-  };
 
   return (
     <>
-      <MainVideo poster={CurrentVideo.image} video={CurrentVideo.video} />
+      <MainVideo poster={CurrentVideo.image} video={`${CurrentVideo.video}?api_key=${apiKey}`} />
       <div className="info">
         <div className="info-text">
           <DescriptionSection
@@ -86,7 +83,6 @@ function HomePage() {
         <div className="info-list">
           <NextVideos
             dataArray={videos}
-            handleVideoClick={handleVideoClick}
             CurrentVideo={CurrentVideo}
           />
         </div>

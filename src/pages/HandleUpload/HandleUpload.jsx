@@ -27,8 +27,10 @@ function HandleUpload() {
         </div>
       </div>
       <div className="upload-sec__buttons">
+      <Link to="/">  
       <button>PUBLISH</button>
         <h2>CANCEL</h2>
+        </Link>
          </div>
     </div>
   );

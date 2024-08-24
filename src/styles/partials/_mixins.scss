@@ -110,7 +110,8 @@ body{
       height: 22vw;
       width: 62vw;
       background-color: $alabaster;
-      border: 0.062rem solid red;
+      outline: 0;
+      border: 0.062rem solid rgb(195, 0, 0);
       border-radius: 0.25rem;
       color: $brainflix-black;
       resize: none;

@@ -1,13 +1,17 @@
 import "./MainVideo.scss";
-import { Link } from "react-router-dom"
 
-function MainVideo({ poster, video}) {
+function MainVideo({ poster, video }) {
   return (
     <section className="Video-container">
       <div className="Video-container__video">
-      <video poster={poster} controls width="100%"  height="auto">
-        <source src={video}  />
-      </video>
+        <video
+          poster={poster}
+          width="100%"
+          height="auto"
+          controls
+        >
+          <source src={video} type="video/mp4" />
+        </video>
       </div>
     </section>
   );

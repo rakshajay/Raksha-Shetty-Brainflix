@@ -2,10 +2,9 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-
 .upload {
-
-    h1, h2 {
+  h1,
+  h2 {
     margin: 0;
     color: $brainflix-black;
   }
@@ -15,10 +14,10 @@
     border-top: 0.09rem solid $mercury;
     padding: 1.3rem 0 0 1rem;
     @include page-header-mobile;
-    @include tablet{
-        @include page-header-desktop;
-        padding: 1.3rem 0 1.5rem 8rem;
-      }
+    @include tablet {
+      @include page-header-desktop;
+      padding: 1.3rem 0 1.5rem 8rem;
+    }
   }
 
   h2 {
@@ -35,19 +34,19 @@
 
     &__img img {
       width: 100%;
-      @include tablet{
+      @include tablet {
         width: 46vw;
-      @include desktop{
-        width: 25vw;
-      }
+        @include desktop {
+          width: 25vw;
+        }
       }
     }
 
     &__text {
-        width: 100%;
+      width: 100%;
       &-title textarea,
       &-comment textarea {
-        border:none;
+        border: none;
         background-color: $alabaster;
         border-radius: 0.25rem;
         border: 0.0625rem solid $mercury;
@@ -55,20 +54,22 @@
         color: $brainflix-black;
         box-sizing: border-box;
         &::placeholder {
-            @include subheader-mobile;
-            color: #5b5a5a;
-            @include tablet{
-                @include subheader-desktop;
-            }
+          @include subheader-mobile;
+          font-weight: 400;
+          font-size: 0.9rem;
+          color: $brainflix-black;
+          @include tablet {
+            @include subheader-desktop;
+            font-weight: 400;
           }
-        
+        }
         &:focus {
+          border: none;
+          outline: 0;
           border: 0.125rem solid $brainflix-blue;
         }
-        &.error {
-          border-color: #d22d2d;
-        }
-         @include tablet {
+
+        @include tablet {
           background-size: 1.1rem;
         }
       }
@@ -78,7 +79,7 @@
         width: 100%;
         border-width: 0.1rem;
         max-width: 100%;
-        padding-top: .5rem;
+        padding-top: 0.5rem;
         @include tablet {
           height: 2.6rem;
         }
@@ -87,17 +88,16 @@
       &-comment textarea {
         height: 8vh;
         width: 100%;
-        padding: 0.5rem 0 0 .5rem;
+        padding: 0.5rem 0 0 0.5rem;
         resize: none;
         border-style: solid;
         border-width: 0.1rem;
-       
+
         @include tablet {
           width: 100%;
-          padding: 0.6rem 0.6rem 0.6rem .6rem;
+          padding: 0.6rem 0.6rem 0.6rem 0.6rem;
         }
       }
-
     }
 
     &__buttons {
@@ -105,14 +105,15 @@
       flex-direction: column;
       align-items: center;
       margin: 1rem;
-      
+
       h2 {
         color: $brainflix-blue;
         margin: 2rem;
       }
 
       button {
-        background: url("../../assets/Icons/publish.svg") no-repeat 0.5rem 50% $brainflix-blue;
+        background: url("../../assets/Icons/publish.svg") no-repeat 0.5rem 50%
+          $brainflix-blue;
         background-size: 1.3rem;
         height: 2.5rem;
         width: 100%;
@@ -121,28 +122,29 @@
         color: $white;
         text-align: center;
         @include labels-buttons-mobile;
-        @include tablet{
-        width: 12vw;
+
+        @include tablet {
+          width: 18vw;
         }
       }
-      @include tablet{
+      @include tablet {
         flex-direction: row-reverse;
-        gap:3rem;
-    }
-    @include desktop {
-        border-top: 0.09rem solid $mercury; 
+        gap: 3rem;
+      }
+      @include desktop {
+        border-top: 0.09rem solid $mercury;
         margin: 0 8rem 0 8rem;
       }
     }
 
-    @include tablet{
-        border-top: 0.09rem solid $mercury;  
+    @include tablet {
+      border-top: 0.09rem solid $mercury;
     }
     @include desktop {
-        padding: 1rem 0.25rem 0.25rem 0;
-        flex-direction: row;
-        gap: 1.5rem;
-        margin: 0 8rem 1.5rem 8rem;
-      }
+      padding: 1rem 0.25rem 0.25rem 0;
+      flex-direction: row;
+      gap: 1.5rem;
+      margin: 0 8rem 1.5rem 8rem;
+    }
   }
 }

@@ -20,7 +20,7 @@ function Header() {
         </div>
         <div className="header-content__button">
         <Link to="/upload">  
-            <button>
+            <button id="upload-button">
               <h3>UPLOAD</h3>
             </button>
           </Link>
