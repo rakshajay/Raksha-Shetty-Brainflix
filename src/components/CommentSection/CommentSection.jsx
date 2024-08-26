@@ -3,7 +3,7 @@ import murgan from "../../assets/Images/Mohan-muruge.jpg";
 import { useState } from "react";
 import axios from "axios";
 
-function CommentSection({ commentsNumber, commentsID }) {
+function CommentSection({ commentsNumber, currentVideoID }) {
   const [inputComment, setInputComment] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -19,7 +19,7 @@ function CommentSection({ commentsNumber, commentsID }) {
    
     if (inputComment.trim()) {
       try {
-        const response = await axios.post(`${url}/videos/${commentsID}/comments?api_key=${apiKey}`,{
+        const response = await axios.post(`${url}/videos/${currentVideoID}/comments?api_key=${apiKey}`,{
           name: "No name", 
           comment: inputComment.trim(),
         });
