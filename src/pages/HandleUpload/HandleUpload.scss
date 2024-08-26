@@ -101,14 +101,9 @@
       align-items: center;
       margin: 1rem;
 
-      h2 {
-        color: $brainflix-blue;
-        margin: 2rem;
-      }
-
       button {
         background: url("../../assets/Icons/publish.svg") no-repeat 0.5rem 50%
-          $brainflix-blue;
+        $brainflix-blue;
         background-size: 1.3rem;
         height: 2.5rem;
         width: 100%;
@@ -122,6 +117,15 @@
           width: 18vw;
         }
       }
+            
+      &-link{
+        text-decoration: none;
+        h2 {
+          color: $brainflix-blue;
+          margin: 2rem;
+         }
+        }
+
       @include tablet {
         flex-direction: row-reverse;
         gap: 3rem;
@@ -144,7 +148,7 @@
   }
 }
 
-#upload-tittle__error, #upload-description__error{
+#upload-title__error, #upload-description__error{
   border: none;
   outline: 0;
   border: .0625rem solid  #D22D2D;

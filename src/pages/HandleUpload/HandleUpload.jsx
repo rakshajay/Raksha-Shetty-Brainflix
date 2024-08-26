@@ -48,7 +48,7 @@ function HandleUpload() {
             <div className="upload-sec__text-title">
               <h2>TITLE YOUR VIDEO</h2>
               <textarea
-                id={`upload-tittle${isSubmitted && !title.trim() ? "__error" : ""}`}
+                id={`upload-title${isSubmitted && !title.trim() ? "__error" : ""}`}
                 onChange={handleTitleChange}
                 value={title}
                 placeholder="Add a title to your video"
@@ -65,7 +65,7 @@ function HandleUpload() {
             </div>
             <div className="upload-sec__buttons">
               <button type="submit">PUBLISH</button>
-              <Link to="/">
+              <Link to="/" className="upload-sec__buttons-link">
                 <h2>CANCEL</h2>
               </Link>
             </div>
