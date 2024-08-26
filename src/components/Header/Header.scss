@@ -78,7 +78,7 @@
       }
 
       @include desktop {
-        margin-left: 26rem;
+        margin-left: 24rem;
       }
     }
 
@@ -143,5 +143,8 @@
 
   @include tablet{
     width: 18vw;
+  }
+  @include desktop{
+    width: 14vw;
   }
 }

@@ -53,6 +53,7 @@
         padding: 0.25rem 0.25rem 0.25rem 0.6rem;
         color: $brainflix-black;
         box-sizing: border-box;
+        resize: none;
         &::placeholder {
           font-family: 'Avenir Next';
             font-weight: 600;
@@ -84,7 +85,6 @@
         height: 8vh;
         width: 100%;
         padding: 0.5rem 0 0 0.5rem;
-        resize: none;
         border-style: solid;
         border-width: 0.1rem;
 
@@ -99,7 +99,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 1rem;
+      margin-top: 1rem;
 
       button {
         background: url("../../assets/Icons/publish.svg") no-repeat 0.5rem 50%
@@ -116,6 +116,9 @@
         @include tablet {
           width: 18vw;
         }
+        @include desktop {
+          width: 14vw;
+        }
       }
             
       &-link{
@@ -127,12 +130,24 @@
         }
 
       @include tablet {
+        border-top: 0.09rem solid $mercury;
         flex-direction: row-reverse;
         gap: 3rem;
       }
       @include desktop {
+        position: fixed;
+        display: block;
+        display: flex;
+        left:8rem;
+        flex-direction: row-reverse;
         border-top: 0.09rem solid $mercury;
-        margin: 0 8rem 0 8rem;
+        margin-top: 1.6rem;
+        
+        #empty-placehodler{
+          width: 39.2rem;
+          flex-grow: 1;
+        }
+        
       }
     }
 

@@ -1,20 +1,35 @@
 import "./CommentSection.scss";
 import murgan from "../../assets/Images/Mohan-muruge.jpg";
 import { useState } from "react";
+import axios from "axios";
 
-function CommentSection({ commentsNumber }) {
+function CommentSection({ commentsNumber, commentsID }) {
   const [inputComment, setInputComment] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const apiKey = "48390e4e-7f0d-4873-bfad-a07caf2a5577";
+    const url = "https://unit-3-project-api-0a5620414506.herokuapp.com";
 
   const handleInputComment = (event) => {
     setInputComment(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
    
     if (inputComment.trim()) {
-      alert("Comment Submitted");
+      try {
+        const response = await axios.post(`${url}/videos/${commentsID}/comments?api_key=${apiKey}`,{
+          name: "No name", 
+          comment: inputComment.trim(),
+        });
+        alert("Comment Submitted");
+        console.log(response.data);
+        setInputComment("");
+      } catch (error) {
+        console.error("Error submitting comment:", error);
+        alert("Failed to submit comment. Please try again.");
+      }
     } else {
       setIsSubmitted(true);
       setTimeout(() => {

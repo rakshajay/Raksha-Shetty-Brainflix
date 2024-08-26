@@ -12,7 +12,10 @@ function CommentList({dataArrayComments}) {
           <div className="comments-section-info">
             <div className="comments-section__info-tags">
               <h3>{comment.name}</h3>
+              <div>
+              <button>Delete</button>
               <h4><TimeAgo datetime={comment.timestamp} /></h4>
+              </div>
             </div>
             <div className="comments-section__info-comments">
               <p>{comment.comment}</p>

@@ -68,6 +68,7 @@ function HandleUpload() {
               <Link to="/" className="upload-sec__buttons-link">
                 <h2>CANCEL</h2>
               </Link>
+              <div id="empty-placehodler"></div>
             </div>
           </form>
         </div>
