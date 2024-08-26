@@ -40,6 +40,7 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
+        width: 66.5vw;
 
         h3 {
           @include subheader-mobile;
@@ -53,6 +54,13 @@
           @include subheader-mobile;
           font-weight: 400;
           color: $silver;
+        }
+
+        @include tablet{
+          width: 82vw;
+        }
+        @include desktop{
+          width: 46vw;
         }
       }
 
