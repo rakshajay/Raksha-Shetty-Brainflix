@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import "./App.scss";
 import Header from "./components/Header/Header";
-import HomePage from "./pages/HandleUpload/HomePage/HomePage";
-import HandleUpload from "./pages/HandleUpload/HandleUpload";
+import HomePage from "./pages/HomePage/HomePage";
+import UploadPage from "./pages/UploadPage/UploadPage";
 
 function App() {
 
@@ -15,7 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/videos" element={<Navigate to="/" />} />
         <Route path="/videos/:id" element={<HomePage />} />
-        <Route path="/upload" element={<HandleUpload />} />
+        <Route path="/upload" element={<UploadPage />} />
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter> 

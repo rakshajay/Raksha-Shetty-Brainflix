@@ -3,8 +3,8 @@ import likesIcon from "../../assets/Icons/likes.svg";
 import viewsIcon from "../../assets/Icons/views.svg";
 import TimeAgo from "timeago-react";
 
-function DescriptionSection({CurrentVideo}) {
-  const { description, title, channel, views, likes, timestamp } = CurrentVideo;
+function DescriptionSection({currentVideo}) {
+  const { description, title, channel, views, likes, timestamp } = currentVideo;
   const formattedTimestamp = new Date(timestamp).toLocaleDateString();
   return (
     <div className="description">

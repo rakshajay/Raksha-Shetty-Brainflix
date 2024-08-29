@@ -1,13 +1,13 @@
 import "./NextVideos.scss";
 import { Link } from "react-router-dom";
 
-function NextVideos({ handleVideoClick, dataArray, CurrentVideo }) {
+function NextVideos({ dataArray, currentVideo }) {
   return (
     <section className="gallery">
       <h1 className="gallery-heading">NEXT VIDEOS</h1>
       <ul className="gallery-list">
         {dataArray
-          ?.filter((video) => video.id !== CurrentVideo.id)
+          ?.filter((video) => video.id !== currentVideo.id)
           .map((video) => (
             <li key={video.id} className="gallery-list__item">
               <Link

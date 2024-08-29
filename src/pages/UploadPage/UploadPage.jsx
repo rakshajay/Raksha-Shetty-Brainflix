@@ -1,17 +1,16 @@
-import "./HandleUpload.scss";
+import "./UploadPage.scss";
 import thumbnailImage from "../../assets/Images/Upload-video-preview.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
-function HandleUpload() {
+function UploadPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const navigate = useNavigate();
-
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -77,4 +76,4 @@ function HandleUpload() {
   );
 }
 
-export default HandleUpload;
+export default UploadPage;
