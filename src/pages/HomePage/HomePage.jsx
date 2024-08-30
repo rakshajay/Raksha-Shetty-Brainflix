@@ -64,11 +64,8 @@ function HomePage() {
       <div className="info">
         <div className="info-text">
           <DescriptionSection currentVideo={currentVideo} />
-          <CommentSection
-            commentsNumber={currentVideo.comments?.length}
-            currentVideoID={currentVideo.id}
+          <CommentSection currentVideo={currentVideo}
           />
-          <CommentList dataArrayComments={currentVideo.comments} />
         </div>
         <div className="info-list">
           <NextVideos dataArray={videos} currentVideo={currentVideo} />

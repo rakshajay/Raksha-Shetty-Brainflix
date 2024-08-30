@@ -50,12 +50,22 @@
             margin-top: 1.4rem;
           }
         }
-        h4 {
-          @include subheader-mobile;
-          font-weight: 400;
-          color: $silver;
+        &-side{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap:.6rem;
+          img{
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+          h4 {
+            @include subheader-mobile;
+            font-weight: 400;
+            color: $silver;
+          }
+  
         }
-
         @include tablet{
           width: 82vw;
         }

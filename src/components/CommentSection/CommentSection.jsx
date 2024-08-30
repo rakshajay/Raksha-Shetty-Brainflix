@@ -3,10 +3,15 @@ import murgan from "../../assets/Images/Mohan-muruge.jpg";
 import { useState } from "react";
 import axios from "axios";
 import { apiKey, baseUrl } from "../../utils";
+import CommentList from "../CommentList/CommentList";
 
-function CommentSection({ commentsNumber, currentVideoID }) {
+function CommentSection({currentVideo}) {
+  
+  const { comments, id, length } = currentVideo;
+
   const [inputComment, setInputComment] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [commentsData, setCommentsData] = useState(comments);
 
   const handleInputComment = (event) => {
     setInputComment(event.target.value);
@@ -14,15 +19,19 @@ function CommentSection({ commentsNumber, currentVideoID }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-   
+
     if (inputComment.trim()) {
       try {
-        const response = await axios.post(`${baseUrl}/videos/${currentVideoID}/comments?api_key=${apiKey}`,{
-          name: "No name", 
-          comment: inputComment.trim(),
-        });
+        const response = await axios.post(
+          `${baseUrl}/videos/${id}/comments?api_key=${apiKey}`,
+          {
+            name: "No name",
+            comment: inputComment.trim(),
+          }
+        );
         alert("Comment Submitted");
-        //console.log(response.data);
+
+        setCommentsData((prevCommentsData) => [response.data,...prevCommentsData]);
         setInputComment("");
       } catch (error) {
         console.error("Error submitting comment:", error);
@@ -38,7 +47,7 @@ function CommentSection({ commentsNumber, currentVideoID }) {
 
   return (
     <section>
-      <h4>{commentsNumber} Comments</h4>
+      <h4>{length} Comments</h4>
       <div className="comment">
         <div className="comment-murgan">
           <img src={murgan} alt="face of murgan" />
@@ -52,7 +61,11 @@ function CommentSection({ commentsNumber, currentVideoID }) {
             className="comment-content__form"
             id="myForm"
           >
-            <div className={`comment-content__form-text${isSubmitted && !inputComment.trim() ? "__error" : ""}`}>
+            <div
+              className={`comment-content__form-text${
+                isSubmitted && !inputComment.trim() ? "__error" : ""
+              }`}
+            >
               <textarea
                 onChange={handleInputComment}
                 value={inputComment}
@@ -67,6 +80,7 @@ function CommentSection({ commentsNumber, currentVideoID }) {
           </form>
         </div>
       </div>
+      <CommentList dataArrayComments={commentsData} />
     </section>
   );
 }
