@@ -1,6 +1,6 @@
 import "./CommentSection.scss";
 import murgan from "../../assets/Images/Mohan-muruge.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiKey, baseUrl } from "../../utils";
 import CommentList from "../CommentList/CommentList";
@@ -8,11 +8,17 @@ import CommentList from "../CommentList/CommentList";
 function CommentSection({currentVideo}) {
   
   const { comments, id, length } = currentVideo;
-
+  console.log("Comments",comments);
   const [inputComment, setInputComment] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [commentsData, setCommentsData] = useState(comments);
+  const [commentsData, setCommentsData] = useState([]);
+ 
+  useEffect(() => {
+    if (comments && comments.length > 0) { setCommentsData(comments); }
+   },
+    [comments]);
 
+  console.log("commentsData",commentsData);
   const handleInputComment = (event) => {
     setInputComment(event.target.value);
   };
