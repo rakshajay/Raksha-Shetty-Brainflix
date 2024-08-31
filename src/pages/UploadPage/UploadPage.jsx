@@ -3,9 +3,11 @@ import thumbnailImage from "../../assets/Images/Upload-video-preview.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 
 function UploadPage() {
+  const baseUrl = import.meta.env.VITE_API_URL;
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,12 +22,22 @@ function UploadPage() {
     setDescription(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (title.trim() && description.trim()) {
-      alert("Video Uploaded Successfully");
-      navigate("/");
+      try {
+        const response = await axios.post(`${baseUrl}/videos`, {
+          title: title.trim(),
+          description: description.trim(),
+        });
+        alert("Video Uploaded Successfully");
+        setTitle("");
+        navigate("/");
+      } catch (error) {
+        console.error("Error publishing vedio:", error);
+        alert("Failed to publish vedio. Please try again.");
+      }
     } else {
       setIsSubmitted(true);
       setTimeout(() => {
@@ -47,7 +59,9 @@ function UploadPage() {
             <div className="upload-sec__text-title">
               <h2>TITLE YOUR VIDEO</h2>
               <textarea
-                id={`upload-title${isSubmitted && !title.trim() ? "__error" : ""}`}
+                id={`upload-title${
+                  isSubmitted && !title.trim() ? "__error" : ""
+                }`}
                 onChange={handleTitleChange}
                 value={title}
                 placeholder="Add a title to your video"
@@ -56,7 +70,9 @@ function UploadPage() {
             <div className="upload-sec__text-comment">
               <h2>ADD A VIDEO DESCRIPTION</h2>
               <textarea
-              id={`upload-description${isSubmitted && !title.trim() ? "__error" : ""}`}
+                id={`upload-description${
+                  isSubmitted && !title.trim() ? "__error" : ""
+                }`}
                 onChange={handleDescriptionChange}
                 value={description}
                 placeholder="Add a description to your video"

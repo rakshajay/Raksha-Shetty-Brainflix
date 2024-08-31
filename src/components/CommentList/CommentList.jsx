@@ -3,7 +3,7 @@ import TimeAgo from "timeago-react";
 import Deleteicon from "../../assets/Icons/Delete-icon.png";
 
 function CommentList({dataArrayComments}) {
-  console.log("dataArrayComments",dataArrayComments);
+  //console.log("dataArrayComments",dataArrayComments);
   const sortedComments = dataArrayComments?.sort((a, b) => b.timestamp - a.timestamp);
   
   return (

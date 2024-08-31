@@ -5,11 +5,11 @@ import "../HomePage/HomePage.scss";
 import MainVideo from "../../components/Video/MainVideo";
 import DescriptionSection from "../../components/DescriptionSection/DescriptionSection";
 import CommentSection from "../../components/CommentSection/CommentSection";
-import CommentList from "../../components/CommentList/CommentList";
 import NextVideos from "../../components/NextVideos/NextVideos";
-import { apiKey, baseUrl } from "../../utils";
 
 function HomePage() {
+  const baseUrl = import.meta.env.VITE_API_URL;
+
   // import API data for video streaming and video list
   const [videos, setVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState({});
@@ -18,8 +18,9 @@ function HomePage() {
 
   const getVideosList = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/videos?api_key=${apiKey}`);
+      const response = await axios.get(`${baseUrl}/videos`);
       const videos = response.data;
+      //console.log("response.data",response.data);
 
       if (videos && videos.length > 0) {
         setVideos(videos);
@@ -38,7 +39,7 @@ function HomePage() {
 
   const getSelectedVideo = async (id) => {
     try {
-      const response = await axios.get(`${baseUrl}/videos/${id}?api_key=${apiKey}`);
+      const response = await axios.get(`${baseUrl}/videos/${id}`);
       setCurrentVideo(response.data);
     } catch (error) {
       console.error("Error fetching movie", error);
@@ -60,7 +61,7 @@ function HomePage() {
 
   return (
     <>
-      <MainVideo poster={currentVideo.image} video={videos} />
+      <MainVideo poster={`${baseUrl}/${currentVideo.image}`} video={videos} />
       <div className="info">
         <div className="info-text">
           <DescriptionSection currentVideo={currentVideo} />

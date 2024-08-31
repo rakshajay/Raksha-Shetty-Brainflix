@@ -34,3 +34,6 @@ dist-ssr
 
 # Ignore alternative folder
 src/assets/fonts/Alternative files/
+
+.env
+node_modules

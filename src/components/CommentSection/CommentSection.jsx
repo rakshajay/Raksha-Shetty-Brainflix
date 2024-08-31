@@ -2,13 +2,13 @@ import "./CommentSection.scss";
 import murgan from "../../assets/Images/Mohan-muruge.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { apiKey, baseUrl } from "../../utils";
 import CommentList from "../CommentList/CommentList";
 
 function CommentSection({currentVideo}) {
+  const baseUrl = import.meta.env.VITE_API_URL;
   
   const { comments, id, length } = currentVideo;
-  console.log("Comments",comments);
+  //console.log("Comments",comments);
   const [inputComment, setInputComment] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [commentsData, setCommentsData] = useState([]);
@@ -18,7 +18,7 @@ function CommentSection({currentVideo}) {
    },
     [comments]);
 
-  console.log("commentsData",commentsData);
+  //console.log("commentsData",commentsData);
   const handleInputComment = (event) => {
     setInputComment(event.target.value);
   };

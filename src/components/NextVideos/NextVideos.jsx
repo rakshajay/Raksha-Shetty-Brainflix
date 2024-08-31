@@ -2,6 +2,7 @@ import "./NextVideos.scss";
 import { Link } from "react-router-dom";
 
 function NextVideos({ dataArray, currentVideo }) {
+  const baseUrl = import.meta.env.VITE_API_URL;
   return (
     <section className="gallery">
       <h1 className="gallery-heading">NEXT VIDEOS</h1>
@@ -15,7 +16,7 @@ function NextVideos({ dataArray, currentVideo }) {
                 to={`/videos/${video.id}`}
               >
                 <div className="gallery-list__item-link-image">
-                  <img src={video.image} alt={video.title} />
+                  <img src={`${baseUrl}/${video.image}`}  alt={video.title} />
                 </div>
                 <div className="gallery-list__item-link-text">
                   <h2>{video.title}</h2>
