@@ -29,7 +29,7 @@ function CommentSection({currentVideo}) {
     if (inputComment.trim()) {
       try {
         const response = await axios.post(
-          `${baseUrl}/videos/${id}/comments?api_key=${apiKey}`,
+          `${baseUrl}/videos/${id}/comments`,
           {
             name: "No name",
             comment: inputComment.trim(),
@@ -86,7 +86,7 @@ function CommentSection({currentVideo}) {
           </form>
         </div>
       </div>
-      <CommentList dataArrayComments={commentsData} />
+      <CommentList commentsData={commentsData} currentVideo={currentVideo}/>
     </section>
   );
 }
